@@ -6,28 +6,28 @@
  */
 int main(void)
 {
+	int x1, x2, x3;
 
-	int digitz_1, digitz_2, digitz_3;
-
-	for (digitz_1 = 48; digitz_1 < 58; digitz_1++)
+	for (x1 = 0; x1 < 8; x1++)
 	{
-		for (digitz_2 = 49; digitz_2 < 58; digitz_2++)
+		for (x2 = x1 + 1; x2 < 9; x2++)
 		{
-			for (digitz_3 = 50; digitz_3 < 58; digitz_3++)
-				if (digitz_3 > digitz_2 && digitz_2 > digitz_1)
-				{
-					putchar(digitz_1);
-					putchar(digitz_2);
-					putchar(digitz_3);
-					if (digitz_1 != 55 || digitz_2 != 56)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
-		}
-		putchar('\n');
-		return (0);
-	}
-}
+			for (x3 = x2 + 1; x3 < 10; x3++)
+			{
+				putchar((x1 % 10) + '0');
+				putchar((x2 % 10) + '0');
+				putchar((x3 % 10) + '0');
 
+				if (x1 == 7 && x2 == 8 && x3 == 9)
+					continue;
+
+				putchar(',');
+				putchar(' ');
+			}
+		}
+	}
+	putchar('\n');
+
+	return (0);
+
+}
