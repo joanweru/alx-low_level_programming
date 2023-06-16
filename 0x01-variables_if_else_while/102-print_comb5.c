@@ -6,20 +6,20 @@
  */
 int main(void)
 {
-	int digitz1, digitz2;
+	int d1, d2;
 
-	for (digitz1 = 0; digitz1 < 100; digitz1++)
+	for (d1 = 0; d1 < 100; d1++)
 	{
-		for (digitz2 = 0; digitz2 < 100; digitz2++)
+		for (d2 = 0; d2 < 100; d2++)
 		{
-			if (digitz1 < digitz2)
+			if (d1 < d2)
 			{
-				putchar((digitz1 / 10) + 48);
-				putchar((digitz1 % 10) + 48);
+				putchar((d1 / 10) + 48);
+				putchar((d1 % 10) + 48);
 				putchar(' ');
-				putchar((digitz2 / 10) + 48);
-				putchar((digitz2 % 10) + 48);
-				if (digitz1 != 98 || digitz2 != 99)
+				putchar((d2 / 10) + 48);
+				putchar((d2 % 10) + 48);
+				if (d1 != 98 || d2 != 99)
 				{
 					putchar(',');
 					putchar(' ');
