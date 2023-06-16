@@ -5,8 +5,8 @@
  * Return: always 0 if code was a success
  */
 int main(void)
-
 {
+
 	int digitz_1, digitz_2, digitz_3;
 
 	for (digitz_1 = 48; digitz_1 < 58; digitz_1++)
