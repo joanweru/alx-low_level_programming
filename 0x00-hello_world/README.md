@@ -27,7 +27,7 @@ This directory contains tasks for my 0x00. C - Hello, World  project. The follow
    * You are not allowed to use `printf`
    * Your program should end with the value `0`
 
-* `5-printf.c` - prints exactly with *proper grammar, but the outcome is a piece of art,*, followed by a new line
+* `5-printf.c` - prints exactly *with proper grammar, but the outcome is a piece of art,*, followed by a new line
    
    * Use the function `printf`
    * You are not allowed to use the function `puts`
