@@ -16,7 +16,7 @@ void times_table(void)
 		for (mltp = 1; mltp <= 9; mltp++)
 		{
 			_putchar(',');
-			_putchar(',');
+			_putchar(' ');
 
 			prd = num * mltp;
 
