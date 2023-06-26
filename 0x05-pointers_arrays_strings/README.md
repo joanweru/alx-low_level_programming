@@ -8,9 +8,9 @@ When variable is created in C, a memory address is assigned to the variable.The 
 
  **To access it, use the reference operator** `&`
 
-` int myAge = 43;
- printf("%p", &myAge);
- `
+ e.g for var `myAge`
+
+`&myAge)`
 
 ## Pointer
 
@@ -18,13 +18,10 @@ When variable is created in C, a memory address is assigned to the variable.The 
 
 **It is created with the** `*` **operator.**
 
-*NB: The pointer and the variable whose memory adress it is storing have to be of the same data type**
+*NB: The pointer and the variable whose memory adress it is storing have to be of the same data type*
 
-
-`int myAge = 43;    
-int* p = &myAge; 
-printf("%p\n", p);
-`
+`int* p = &myAge;` 
+`printf("%p\n", p);`
 
 Now, `p` holds the value of myAge's memory address.
 
@@ -33,14 +30,15 @@ Now, `p` holds the value of myAge's memory address.
 You can also get the value of the variable the pointer points to, by using the `*` operator **(the dereference operator)**. 
 
 `
-int myAge = 43;     // Variable declaration
-int* p = &myAge;  // Pointer declaration
+int myAge = 43;     // Variable declaration \n
+int* p = &myAge;  // Pointer declaration \n
 
-// Reference: Output the memory address of myAge with the pointer (0x7ffe5367e044)
+// Reference: Output the memory address of myAge with the pointer (0x7ffe5367e044) \n
 printf("%p\n", p);
 
-// Dereference: Output the value of myAge with the pointer (43)
+// Dereference: Output the value of myAge with the pointer (43) \n
 printf("%d\n", *p);
 `
+
 
 
