@@ -22,9 +22,7 @@ char *leet(char *str)
 				str[i] = y[j];
 			}
 		}
-
-
 	}
 
-
+	return (str);
 }
