@@ -13,13 +13,13 @@ char *str_concat(char *s1, char *s2)
 	unsigned int z1 = 0, z2 = 0, long1 = 0, long2 = 0;
 	char *p;
 
-	if (s1 != NULL)
+	if (s1 != NULL) /*wwwwwwrrrrrr*/
 	{
 		while (s1[long1])
 			long1++;
 	}
 
-	if (s2 != NULL)
+	if (s2 != NULL) /*caaaaaarl*/
 	{
 		while (s2[long2])
 			long2++;
@@ -30,7 +30,7 @@ char *str_concat(char *s1, char *s2)
 	if (p == NULL)
 		return (NULL);
 
-	for (; z1 < long1; z1++)
+	for (; z1 < long1; z1++) /*zzzzzz*/
 	{
 		p[z1] = s1[z1];
 	}
