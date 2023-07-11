@@ -9,46 +9,42 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int a = 0;
-	int b = 0;
-	int id = 0;
-	int tot_len = 0;
-	char *output;
+	int a, b, id, tot_len = 0;
+	char *output, *c;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
+	a = 0;
 	for (; a < ac; a++)
 	{
-		char *c = av[a];
-		int arg_len = 0;
+		c = av[a];
+		b = 0;
 
-		while (c[arg_len] != '\0')
-		{
-			arg_len++;
-		}
+		while (c[b++])
+			tot_len++; /*aweeesooome*/
 
-		tot_len += arg_len + 1;
+		tot_len++; /*rrriiiiight*/
 	}
 
-	output = (char *) malloc((tot_len + 1) * sizeof(char));
-
+	output = (char *)malloc((sizeof(char) * tot_len + 1));
 	if (output == NULL)
 		return (NULL);
 
-	for (; a < ac; a++)
+	for (a = 0, b = 0; a < ac && b < tot_len; a++)
 	{
-		char *c = av[a];
+		c = av[a]; /*zzzzzzzz*/
+		id = 0;
 
-		while (c[b] != '\0')
+		while (c[id])
 		{
-			output[id++] = c[b++];
+			output[b++] = c[id++];
 		}
 
-		output[id++] = '\n';
-	}
+		output[b++] = '\n';
 
-	output[tot_len] = '\0';
+	}
+	output[b] = '\0';
 
 	return (output);
 }
