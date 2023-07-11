@@ -1,10 +1,33 @@
 #include "main.h"
 #include <stdlib.h>
 
+int index_mark(char *s);
+int no_words(char *c);
+char **strtow(char *str);
+
 /**
- * no_words - counts no. of words in input sring
- * @c: string to count words of
- * Return: no of words in string
+ * index_mark - marks out the end of 1st word of string
+ * @s: string to be searched
+ * Return: the index mark
+ *rrrrr
+ */
+int index_mark(char *s)
+{
+	int i = 0, size = 0;
+
+	while (*(s + i) && *(s + i) != ' ')
+	{
+		size++;
+		i++;
+	}
+
+	return (size);
+}
+
+/**
+ * no_words - points out the end of 1st word in string
+ * @c: string to search
+ * Return: end of 1st word of string
  *zzzzzz
  */
 int no_words(char *c)
@@ -12,17 +35,18 @@ int no_words(char *c)
 	int i, j, count;
 
 	i = 0;
-	count = 0;
-	j = 0; /*ooookkkkkaayy*/
+	count = 0;/*ooookkkkkaayy*/
+	j = 0;
 
-	for (; c[j] != '0'; j++)
+	for (i = 0; *(c + i); i++)
+		count++;
+
+	for (i = 0; i < count; count++)
 	{
-		if (c[j] == ' ')
-			i =  0;
-		else if (i == 0)
+		if (*(c + i) != ' ')
 		{
-			i = 1;
-			count++;
+			j++;
+			i += index_mark(c + i);
 		}
 	}
 
@@ -39,43 +63,44 @@ int no_words(char *c)
  */
 char **strtow(char *str)
 {
-	char **array, *t;
-	int a, b = 0, size = 0, wrds, s = 0, begin, finish;
+	char **array;
+	int i = 0, wrds, j, lttrs, k;
 
-	while (*(str + size))
-		size++;
-	wrds = no_words(str);/*ilooooooveliiiife*/
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
+
+	wrds = no_words(str);
 	if (wrds == 0)
 		return (NULL);
 
-	array = (char **) malloc(sizeof(char *) * (wrds + 1));
+	array = malloc(sizeof(char *) * (wrds + 1));
 	if (array == NULL)
 		return (NULL);
 
-	a = 0;
-	for (; a <= size; a++)
+	for (j = 0; j < wrds; j++)
 	{
-		if (str[a] == ' ' || str[a] == '\0')
+		while (str[i] == ' ')
+			i++;
+
+		lttrs = index_mark(str + i);
+
+		array[j] = malloc(sizeof(char) * (lttrs + 1));
+
+		if (array[j] == NULL)
 		{
-			if (s)/*moooooon*/
-			{
-				finish = a;
-				t = (char *) malloc(sizeof(char) * (s + 1));
-				if (t == NULL)
-					return (NULL);
-				while (begin < finish)
-					*t++ = str[begin++];
-				*t = '\0';
-				array[b++] = t - s;
-				s = 0;
+			for (; j >= 0; j--)
+				free(array[j]);
 
-			}
+			free(array);
+			return (NULL);
 		}
-		else if (s++ == 0)
-			begin = a;
-	}
 
-	array[b] = NULL;
+		for (k = 0; k < lttrs; k++)
+			array[j][k] = str[i++];
+
+		array[j][k] = '\0';
+	}
+	array[j] = NULL;
 
 	return (array);
 }
