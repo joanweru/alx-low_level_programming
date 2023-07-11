@@ -5,7 +5,7 @@ void fetch(char **wrds, char *str);
 void make_words(char **wrds, char *str, int begin, int stop, int id);
 
 /**
- * make_word - makes a word and puts it into the array
+ * make_words- makes a word and puts it into the array
  * @wrds: matrix of strings
  * @str: input string
  * @begin: begining of word
@@ -15,7 +15,7 @@ void make_words(char **wrds, char *str, int begin, int stop, int id);
 
 void make_words(char **wrds, char *str, int begin, int stop, int id)
 {
-	int a, b;
+	int a, b; /*yyyyyuuuuup*/
 
 	a = stop - begin;
 	wrds[id] = (char *)malloc(sizeof(char) * (a + 1));
@@ -36,7 +36,7 @@ void fetch(char **wrds, char *str)
 {
 	int a = 0, b = 0, begin, stop = 0;
 
-	while (str[a])
+	while (str[a]) /*mooooooneeeeyyy*/
 	{
 		if (stop == 0 && str[a] != ' ')
 		{
@@ -84,7 +84,7 @@ char **strtow(char *str)
 			f = 0;
 			l++;
 		}
-		a++;
+		a++; /*liiiisttteeeen*/
 	}
 
 	l += f == 1 ? 1 : 0;
