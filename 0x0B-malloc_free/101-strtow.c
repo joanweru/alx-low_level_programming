@@ -1,107 +1,101 @@
 #include "main.h"
 #include <stdlib.h>
 
-int index_mark(char *s);
-int no_words(char *c);
-char **strtow(char *str);
+void fetch(char **wrds, char *str);
+void make_words(char **wrds, char *str, int begin, int stop, int id);
 
 /**
- * index_mark - marks out the end of 1st word of string
- * @s: string to be searched
- * Return: the index mark
- *rrrrr
+ * make_word - makes a word and puts it into the array
+ * @wrds: matrix of strings
+ * @str: input string
+ * @begin: begining of word
+ * @stop: end of word
+ * @id: id of array
  */
-int index_mark(char *s)
+
+void make_words(char **wrds, char *str, int begin, int stop, int id)
 {
-	int i = 0, size = 0;
+	int a, b;
 
-	while (*(s + i) && *(s + i) != ' ')
-	{
-		size++;
-		i++;
-	}
+	a = stop - begin;
+	wrds[id] = (char *)malloc(sizeof(char) * (a + 1));
 
-	return (size);
+	for (b = 0; begin < stop; begin++, b++)
+		wrds[id][b] = str[begin];
+	wrds[id][b] = '\0';
 }
 
+
+
 /**
- * no_words - points out the end of 1st word in string
- * @c: string to search
- * Return: end of 1st word of string
- *zzzzzz
- */
-int no_words(char *c)
+  * fetch - fetches words to an array
+  * @wrds: array of strings
+  * @str: input string
+  */
+void fetch(char **wrds, char *str)
 {
-	int i, j, count;
+	int a = 0, b = 0, begin, stop = 0;
 
-	i = 0;
-	count = 0;/*ooookkkkkaayy*/
-	j = 0;
-
-	for (i = 0; *(c + i); i++)
-		count++;
-
-	for (i = 0; i < count; count++)
+	while (str[a])
 	{
-		if (*(c + i) != ' ')
+		if (stop == 0 && str[a] != ' ')
 		{
-			j++;
-			i += index_mark(c + i);
+			begin = a;
+			stop = 1;
 		}
+
+		if (a > 0 && str[a] == ' ' && str[a - 1] != ' ')
+		{
+			make_words(wrds, str, begin, a, b);
+			b++;
+			stop = 0;
+		}
+
+		a++;
 	}
 
-	return (count);
+	if (stop == 1)
+		make_words(wrds, str, begin, a, b);
+
 }
 
 /**
- * strtow - splits a string into words
+ * strtow - splits a string into words.
  * @str: input string to be split
- * Return: a pointer to an array of strings (words)
- * Returns NULL if str == NULL or str == ""
- * return NULl if function fails
- *zzzzzz
+ * Return: returns a pointer to an array of strings (words)
+ * NULL if str == NULL or str == "" & if funcion fails
  */
+
 char **strtow(char *str)
 {
-	char **array;
-	int i = 0, wrds, j, lttrs, k;
+	int a, f, l;
+	char **wrds;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 		return (NULL);
 
-	wrds = no_words(str);
-	if (wrds == 0)
-		return (NULL);
-
-	array = malloc(sizeof(char *) * (wrds + 1));
-	if (array == NULL)
-		return (NULL);
-
-	for (j = 0; j < wrds; j++)
+	a = f = l = 0;
+	while (str[a])
 	{
-		while (str[i] == ' ')
-			i++;
-
-		lttrs = index_mark(str + i);
-
-		array[j] = malloc(sizeof(char) * (lttrs + 1));
-
-		if (array[j] == NULL)
+		if (f == 0 && str[a] != ' ')
+			f = 1;
+		if (a > 0 && str[a] == ' ' && str[a - 1] != ' ')
 		{
-			for (; j >= 0; j--)
-				free(array[j]);
-
-			free(array);
-			return (NULL);
+			f = 0;
+			l++;
 		}
-
-		for (k = 0; k < lttrs; k++)
-			array[j][k] = str[i++];
-
-		array[j][k] = '\0';
+		a++;
 	}
-	array[j] = NULL;
 
-	return (array);
+	l += f == 1 ? 1 : 0;
+	if (l == 0)
+		return (NULL);
+
+	wrds = (char **)malloc(sizeof(char *) * (l + 1));
+	if (wrds == NULL)
+		return (NULL);
+
+	fetch(wrds, str);
+	wrds[l] = NULL;
+	return (wrds);
 }
-
