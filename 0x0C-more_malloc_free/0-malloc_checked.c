@@ -15,5 +15,5 @@ void *malloc_checked(unsigned int b)
 	if (m == NULL)
 		exit(98);/*agfjggndk*/
 
-	return(m);
+	return (m);
 }
