@@ -33,7 +33,7 @@ int check_digit(char *a)
 }
 
 /**
- * arr_len: returns length of input array
+ * arr_len - returns length of input array
  * @a: array to evaluate
  * Return: length of array
  */
@@ -62,18 +62,14 @@ int main(int argc, char *argv[])
 	c1 = argv[1], c2 = argv[2];
 	if (argc != 3 || !check_digit(c1) || !check_digit(c2))
 		err();
-
 	l1 = arr_len(c1);
 	l2 = arr_len(c2);
 	l = l1 + l2 + 1;
 	prod = malloc(sizeof(int) * l);
-
 	if (!prod)
 		return (1);
-
 	for (i = 0; i <= l1 + l2; i++)
 		prod[i] = 0;
-
 	for (l1 = l1 - 1; l1 >= 0; l1--)
 	{
 		i = c1[l1] - '0';
@@ -85,26 +81,19 @@ int main(int argc, char *argv[])
 			prod[l1 + l2 + 1] = rem % 10;
 			rem /= 10;
 		}
-
 		if (rem > 0)
 			prod[l1 + l2 + 1] += rem;
-
 	}
-
 	for (z = 0; z < l - 1; z++)
 	{
 		if (prod[z])
 			a = 1;
-
 		if (a)
 			_putchar(prod[z] + '0');
 	}
-
 	if (!a)
 		_putchar('0');
-
 	_putchar('\n');
 	free(prod);
 	return (0);
-
 }
