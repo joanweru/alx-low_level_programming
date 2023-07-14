@@ -54,7 +54,7 @@ To use a header file in C, you can include it in your source code using the `#in
 > In summary: 
 
 ```
-// Function declaration - header function
+// Function declaration - header file
 void myFunction();
 
 // The main method; call the function - main.c file
