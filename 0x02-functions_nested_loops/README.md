@@ -49,7 +49,25 @@ Header files in C are files that contain function prototypes, type definitions, 
 
 To use a header file in C, you can include it in your source code using the `#include` preprocessor directive.
 
-<em> **NB: When using the   `#include` directive, you can either use angle brackets `< >` for system headers or double quotes `" "` for your own header files or files located in the same directory as your source code.** </em>
+ **NB: When using the   `#include` directive, you can either use angle brackets `< >` for system headers or double quotes `" "` for your own header files or files located in the same directory as your source code.** 
+
+> In summary: 
+
+```
+// Function declaration - header function
+void myFunction();
+
+// The main method; call the function - main.c file
+int main() {
+  myFunction();  
+  return 0;
+}
+
+// Function definition - source file
+void myFunction() {
+  printf("I just got executed!");
+}
+```
 
 ## Scope of Variables
 
