@@ -10,7 +10,7 @@ When variable is created in C, a memory address is assigned to the variable. **T
 
  e.g for var `myAge`
 
-`&myAge)`
+`&myAge`
 
 ## Pointer
 
@@ -20,11 +20,11 @@ When variable is created in C, a memory address is assigned to the variable. **T
 
 *NB: The pointer and the variable whose memory adress it is storing have to be of the same data type*
 
-`int* p = &myAge;`
+`int* ptr = &myAge;`
 
-`printf("%p\n", p);`
+`printf("%p\n", ptr);`
 
-Now, `p` holds the value of myAge's memory address.
+Now, `ptr` holds the value of myAge's memory address.
 
 ## Deference 
 
