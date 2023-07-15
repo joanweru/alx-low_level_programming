@@ -30,18 +30,17 @@ Now, `ptr` holds the value of myAge's memory address.
 
 You can also get the value of the variable the pointer points to, by using the `*` operator **(the dereference operator)**. 
 
-
 `int myAge = 43;`     *// Variable declaration*
 
-`int* p = &myAge;`  *// Pointer declaration* 
+`int* ptr = &myAge;`  *// Pointer declaration* 
 
 *Reference: Output the memory address of myAge with the pointer* 
 
-`printf("%p\n", p);`
+`printf("%p\n", ptr);`
 
 *Dereference: Output the value of myAge with the pointer* 
 
-`printf("%d\n", *p);`
+`printf("%d\n", *ptr);`
 
 
 
