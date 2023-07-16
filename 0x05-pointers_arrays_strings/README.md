@@ -26,7 +26,7 @@ When variable is created in C, a memory address is assigned to the variable. **T
 
 Now, `ptr` holds the value of myAge's memory address.
 
-### Deference 
+### <ins> Deference </ins>
 
 You can also get the value of the variable the pointer points to, by using the `*` operator **(the dereference operator)**. 
 
@@ -46,7 +46,7 @@ You can also get the value of the variable the pointer points to, by using the `
 
 An array is a collection of variables of the same type.
 
-### Declaring(Creating) Arrays
+### <ins> Declaring(Creating) Arrays </ins>
 
 To create an array, define the data type and specify the name of the array followed by square brackets [].
 
@@ -67,7 +67,7 @@ myNumbers[2] = 75;
 myNumbers[3] = 100;
 ```
 
-### Accessing Array Elements
+### <ins> Accessing Array Elements </ins>
 
 An element is accessed by indexing the array name. This is done by placing the index of the element within square brackets after the name of the array
 
@@ -80,6 +80,19 @@ printf("%d", myNumbers[0]);
 
 **NB: Array indexes start with 0**
 
+## Relationship between pointers and arrays
+
+Arrays and pointers can be used interchangeably in C.
+
+In C, when you declare an array, the array name itself can be treated as a pointer. It automatically points to the memory address of the first element of the array. So, you can use the array name as a pointer to access or modify the elements in the array.
+
+For example, consider the following code snippet: 
+
+```
+int numbers[5] = {1, 2, 3, 4, 5}; 
+int *ptr = numbers;
+```
+In this case, both `numbers` and `ptr` point to the same memory location, which is the first element of the numbers array. Therefore `ptr[0]` is the same as `numbers[0]`. 
 
 
 
