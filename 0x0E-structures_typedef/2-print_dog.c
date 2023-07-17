@@ -2,7 +2,7 @@
 #include "dog.h"
 
 /**
- * print_dog - Write a function that prints a struct dog
+ * print_dog - Write a function that prints struct dog
  * @d: pointer to struct dog
  */
 void print_dog(struct dog *d)
