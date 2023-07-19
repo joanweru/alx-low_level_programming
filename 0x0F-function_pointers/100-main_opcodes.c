@@ -26,16 +26,19 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
+
 	fn_ptr = (unsigned char *)main;
+
 	j = 0;
 
 	for (; j < size; j++)
 	{
-		if (j < (size - 1))
+		if (j != (size - 1))
 		{
 			printf("%02hhx ", fn_ptr[j]);
 		}
 		printf("%02hhx\n", fn_ptr[j]);
+		break;
 	}
 	return (0);
 }
