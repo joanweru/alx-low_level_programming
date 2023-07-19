@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void ptr_opc(char *fn_ptr, int size);
+
 /**
  * main - prints the opcodes of its own main function.
  * @argc: number of arguments
@@ -9,9 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int size, j;
-
-	unsigned char *fn_ptr;
+	int size;
 
 	if (argc != 2)
 	{
@@ -27,19 +27,26 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	fn_ptr = (unsigned char *)main;
+	ptr_opc((char *)&main, size);
+	return (0);
+}
 
-	j = 0;
+/**
+  * ptr_opc - helper fn to print opcodes
+  * @fn_ptr: memory address of function 'main'
+  * @size: no. of bytes to print
+ */
+void ptr_opc(char *fn_ptr, int size)
+{
+	int j = 0;
 
 	for (; j < size; j++)
 	{
-		if (j != (size - 1))
-		{
-			printf("%02hhx ", fn_ptr[j]);
-		}
-		printf("%02hhx\n", fn_ptr[j]);
-		break;
+		printf("%.2hhx", fn_ptr[j]);
+		if  (j < size - 1)
+			printf(" ");
 	}
-	return (0);
+
+	printf("\n");
 }
 
