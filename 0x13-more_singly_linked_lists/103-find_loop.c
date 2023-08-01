@@ -12,12 +12,22 @@ listint_t *find_listint_loop(listint_t *head)
 	listint_t *first = head;
 	listint_t *second = head;
 
+	if (head == NULL)
+		return (NULL);
+
 	while (first && second && second->next)
 	{
-		first = first->next;
+		first = first->next;/*liiists*/
 		second = second->next->next;
-		if (first == second)
+
+		if (first == second)/*hobiiits*/
 		{
+			second = head;
+			while (second != first)
+			{
+				second = second->next;
+				first = first->next;
+			}
 			return (first);
 		}
 	}
