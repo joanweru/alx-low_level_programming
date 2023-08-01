@@ -14,15 +14,15 @@ size_t free_listint_safe(listint_t **h)
 	if (h == NULL || *h == NULL)
 		return (0);
 
-	while (*h)
+	while (*h)/*okaaaay*/
 	{
 		j = *h - (*h)->next;
-		if (j > 0)
+		if (j > 0)/*aveeeeemaria*/
 		{
 			store = (*h)->next;
 			free(*h);
 			*h = store;
-			size++;
+			size++;/*venusrx*/
 		}
 		else
 		{
