@@ -9,16 +9,19 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int bit;
+	unsigned long int output;
 
-	bit = 0x01;
-
-	bit <<= index;
-
-	if (bit == 0)
+	if (index > (sizeof(unsigned long int) * 8 - 1))
 		return (-1);
+
+	bit = 1 << index;/*can i*/
+
+	ouput = n & bit;/*giiirl*/
+
+	if (output == bit)
 
 	if ((n & bit))
 		return (1);
-	else
-		return (0);
+
+	return (0);
 }
