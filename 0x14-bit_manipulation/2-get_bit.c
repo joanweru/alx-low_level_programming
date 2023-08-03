@@ -16,7 +16,7 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	bit = 1 << index;/*can i*/
 
-	ouput = n & bit;/*giiirl*/
+	output = n & bit;/*giiirl*/
 
 	if (output == bit)
 
