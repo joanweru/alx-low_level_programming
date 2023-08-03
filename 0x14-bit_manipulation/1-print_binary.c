@@ -7,25 +7,23 @@
 void print_binary(unsigned long int n)
 {
 	unsigned int mark = 0;
-	unsigned int num = 32768;
+	int flip;
 
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	while (num)
-	{
-		if (mark == 1 && (n & num) == 0)
-			_putchar('0');/*hooome*/
 
-		else if ((n & num) != 0)
-		{
-			
+	for (mark = n, flip = 0; (mark >>= 1) > 0; flip++)
+	;
+
+	for (; flip >= 0; flip--)
+	{
+		if ((n >> flip) & 1)
 			_putchar('1');
-			mark = 1;
-		}
-		num >>= 1; /*meditate*/
+		else 
+			_putchar('0');
 	}
 
 }
