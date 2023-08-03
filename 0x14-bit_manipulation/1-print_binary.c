@@ -21,10 +21,11 @@ void print_binary(unsigned long int n)
 
 		else if ((n & num) != 0)
 		{
-			mark = 1;
+			
 			_putchar('1');
+			mark = 1;
 		}
-		num >>= 1; /*meditae*/
+		num >>= 1; /*meditate*/
 	}
 
 }
