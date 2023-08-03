@@ -10,13 +10,11 @@ int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int num;
 
-	num =  0x01;
+	if (index > 64)/*siku kuu*/
+		return (-1);/*hope*/
 
-	num = ~(num << index);
-
-	if (num == 0x00) /*heeey*/
-		return (-1);/*intersting*/
-
+	num = ~(1 << index);
 	*n &= num;
+
 	return (1);
 }
