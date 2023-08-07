@@ -1,10 +1,4 @@
-#include <elf.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 void prt_mgc(unsigned char *input_e);
 void prt_cls(unsigned char *input_e);
@@ -25,7 +19,7 @@ void if_elf(unsigned char *input_e)
 {
 	int id;
 
-	id = 0;
+	id = 0;/*soooooo*/
 
 	for (; id < 4; id++)
 	{
@@ -50,7 +44,7 @@ void prt_mgc(unsigned char *input_e)
 
 	printf("  Magic:   ");
 
-	id = 0;
+	id = 0;/*12655bri59gng8*/
 
 	for (; id < EI_NIDENT; id++)
 	{
@@ -59,7 +53,7 @@ void prt_mgc(unsigned char *input_e)
 		if (id == EI_NIDENT - 1)
 			printf("\n");
 		else
-			printf(" ");
+			printf(" ");/*87654ffmfuymy*/
 	}
 }
 
@@ -78,10 +72,10 @@ void prt_cls(unsigned char *input_e)
 		break;
 	case ELFCLASS32:
 		printf("ELF32\n");
-		break;
+		break;/*8hhgmg7777*/
 	case ELFCLASS64:
 		printf("ELF64\n");
-		break;
+		break;/*joooooan*/
 	default:
 		printf("<unknown: %x>\n", input_e[EI_CLASS]);
 	}
@@ -102,10 +96,10 @@ void data_prt(unsigned char *input_e)
 		break;
 	case ELFDATA2LSB:
 		printf("2's complement, little endian\n");
-		break;
+		break;/*24jhfhggjhhbebdjf*/
 	case ELFDATA2MSB:
 		printf("2's complement, big endian\n");
-		break;
+		break;/*riiiiight*/
 	default:
 		printf("<unknown: %x>\n", input_e[EI_CLASS]);
 	}
@@ -124,7 +118,7 @@ void prt_vrsn(unsigned char *input_e)
 	{
 	case EV_CURRENT:
 		printf(" (current)\n");
-		break;
+		break;/*kidding*/
 	default:
 		printf("\n");
 		break;
@@ -146,7 +140,7 @@ void prt_os(unsigned char *input_e)
 		break;
 	case ELFOSABI_HPUX:
 		printf("UNIX - HP-UX\n");
-		break;
+		break;/*foundation*/
 	case ELFOSABI_NETBSD:
 		printf("UNIX - NetBSD\n");
 		break;
@@ -161,7 +155,7 @@ void prt_os(unsigned char *input_e)
 		break;
 	case ELFOSABI_FREEBSD:
 		printf("UNIX - FreeBSD\n");
-		break;
+		break;/*cccvvggggggkkl*/
 	case ELFOSABI_TRU64:
 		printf("UNIX - TRU64\n");
 		break;
@@ -206,7 +200,7 @@ void prt_typelf(unsigned int type_elf, unsigned char *input_e)
 	case ET_REL:
 		printf("REL (Relocatable file)\n");
 		break;
-	case ET_EXEC:
+	case ET_EXEC:/*cherrrrrrry*/
 		printf("EXEC (Executable file)\n");
 		break;
 	case ET_DYN:
@@ -287,12 +281,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 	rd = read(op, header, sizeof(Elf64_Ehdr));
-	if (rd == -1)
+	if (rd == -1)/*jooooooaaaaan*/
 	{
-		free(header);
+		free(header);/*heeeeytttt*/
 		elf_clsfile(op);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
-		exit(98);
+		exit(98);/*tytythgkhnn*/
 	}
 
 	if_elf(header->e_ident);
