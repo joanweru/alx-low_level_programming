@@ -19,7 +19,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident);
 
 /**
  * if_elf - looks if input file is an ELF file
- * @e_ident: pointer to array with ELF magic numbers.
+ * @input_e: pointer to array with ELF magic numbers.
  */
 void if_elf(unsigned char *input_e)
 {
